@@ -43,52 +43,59 @@ body {
 }
 
 #about {
-	display: flex;
-	background-color: #F6D2B8;
-	padding-inline: 100px;
-	padding-block: 100px;
-	position: relative;
+    display: flex;
+    background-color: #F6D2B8;
+    padding: 100px;
+    position: relative;
+    align-items: center; /* Center vertically */
 }
 
-.picture.left::before {
-	content: ' ';
-	background-color: #E5975F;
-	width: 374px;
-	height: 329px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	z-index: -1;
+.picture.left {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    margin-right: 20px; /* Adjust margin as needed */
 }
 
-.picture {
-	flex: 1;
-	margin: 0 20px;
-	z-index: 0;
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 374px; /* Set width of the pseudo-element */
+    height: 329px; /* Set height of the pseudo-element */
+    background-color: #E5975F;
+    z-index: 0;
 }
 
-.picture img {
-	width: 100%;
-
+.picture.left img {
+    width: 100%;
+    display: block;
 }
+
 #about-me {
-	flex: 2
+    flex: 2;
 }
+
 .about-me__title {
-	margin-top: 1em;
-	margin-bottom: 60px;
-	font-size: 30px;
+    font-size: 30px;
+    margin-top: 1em;
+    margin-bottom: 30px; /* Adjust margin as needed */
 }
+
 .about-me__introduction {
-	font-family: 'Spectral';
-	font-weight: 800;
-	font-style: italic;
-	width: 60%;
+    font-family: 'Spectral';
+    font-weight: 800;
+    font-style: italic;
+    width: 60%;
+    margin-bottom: 30px; /* Adjust margin as needed */
 }
+
 #about-me p {
-	width: 80%;
-	font-size: 14px;
+    width: 80%;
+    font-size: 16px; /* Adjust font size as needed */
+    line-height: 1.6; /* Adjust line height as needed */
 }
+
 
 #gallery {
 	/*	min-height: 100vh; */
@@ -268,14 +275,14 @@ input[type="submit"] {
 	.picture {
 		width: 50%;
 	}
-	.picture.left::before {
+	.overlay {
 		width: 100%;
 		height: 30%;
 		position: absolute;
 		bottom: auto;
 		top: 0;
 		left: 0;
-		z-index: -1;
+		z-index: 0;
 	}
 	.about-me__title{
 		text-align: center;
@@ -333,7 +340,7 @@ input[type="submit"] {
 		padding-block: 1em;
 		text-align: center;
 	}
-	.picture.left::before, .picture.right::before {
+	.overlay {
 		height: 150px;
 	}
 	#services .container {
