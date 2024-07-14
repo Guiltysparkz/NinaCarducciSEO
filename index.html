@@ -161,11 +161,11 @@
 <script src="./assets/scripts.js" defer></script>
 <script defer>
 	document.addEventListener("DOMContentLoaded", function() {
-		var screenWidth = window.innerWidth;
+		let screenWidth = window.innerWidth;
 		var images = document.querySelectorAll(".carousel-inner img");
 		images.forEach(function(img) {
 			var src = img.getAttribute("src");
-			var newSrc = screenWidth < 1001 ? src.replace('.webp', '-medium.webp') : screenWidth < 651 ? src.replace('.webp', '-small.webp') : src;
+			let newSrc = (screenWidth < 651) ? src.replace('.webp', '-small.webp') : (screenWidth < 1001) ? src.replace('.webp', '-medium.webp') : src;
 			img.setAttribute("src", newSrc);
 		});
 	});
