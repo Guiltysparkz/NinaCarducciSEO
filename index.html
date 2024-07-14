@@ -12,8 +12,20 @@
     <link rel="stylesheet" href="./assets/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" rel="stylesheet" async>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap"></noscript>
     <meta charset="UTF-8">
+
+	<style>
+        /* Critical CSS */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Spectral', serif;
+        }
+    </style>
+
 </head>
 <body>
 <section class="top-header">
@@ -147,5 +159,16 @@
 <script src="./assets/bootstrap/bundle.js" defer></script>
 <script src="./assets/maugallery.js" defer></script>
 <script src="./assets/scripts.js" defer></script>
+<script defer>
+	document.addEventListener("DOMContentLoaded", function() {
+		var screenWidth = window.innerWidth;
+		var images = document.querySelectorAll(".carousel-inner img");
+		images.forEach(function(img) {
+			var src = img.getAttribute("src");
+			var newSrc = screenWidth < 1001 ? src.replace('.webp', '-medium.webp') : screenWidth < 651 ? src.replace('.webp', '-small.webp') : src;
+			img.setAttribute("src", newSrc);
+		});
+	});
+	</script>
 </body>
 </html>
