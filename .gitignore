@@ -1,2 +1,4 @@
 #node-modules
 .node_modules
+# Dependency directories
+node_modules/
