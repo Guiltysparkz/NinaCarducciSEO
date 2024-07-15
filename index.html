@@ -42,6 +42,17 @@
     </nav>
 </section>
 <div id="header" aria-label="Header">
+    <script async>
+        document.addEventListener("DOMContentLoaded", function() {
+            let screenWidth = window.innerWidth;		
+            var images = document.querySelectorAll(".carousel-inner img");
+            images.forEach(function(img) {
+                var src = img.getAttribute("src");
+                let newSrc = (screenWidth < 651) ? src.replace('.webp', '-small.webp') : (screenWidth < 1001) ? src.replace('.webp', '-medium.webp') : src;
+                img.setAttribute("src", newSrc);
+            });
+        });
+    </script>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" aria-label="Main Carousel">
         <div class="carousel-indicators" aria-label="Carousel Indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -83,6 +94,14 @@ align-items: center;" aria-label="About Section">
     margin-right: 20px;">
         <img src="./assets/images/Nina-Carducci.webp" alt="Nina Carducci" loading="eager" style="width: 100%;
     display: block;">
+    <script async>
+        document.addEventListener("DOMContentLoaded", function() {
+            let screenWidth = window.innerWidth;
+            var pfp = document.querySelector(".picture img");
+            var src = pfp.getAttribute("src");
+            pfp.src = (screenWidth < 651) ? src.replace('.webp', '-small.webp') : (screenWidth < 1001) ? src.replace('.webp', '-medium.webp') : src;
+        });
+    </script>
     </div>
     <div id="about-me" style="
     flex: 2;">
@@ -211,20 +230,5 @@ align-items: center;" aria-label="About Section">
 <script src="./assets/bootstrap/bundle.js" defer></script>
 <script src="./assets/maugallery.js" defer></script>
 <script src="./assets/scripts.js" defer></script>
-<script>
-	document.addEventListener("DOMContentLoaded", function() {
-		let screenWidth = window.innerWidth;
-		var pfp = document.querySelector(".picture img");
-		var src = pfp.getAttribute("src");
-		pfp.src = (screenWidth < 651) ? src.replace('.webp', '-small.webp') : (screenWidth < 1001) ? src.replace('.webp', '-medium.webp') : src;
-		
-		var images = document.querySelectorAll(".carousel-inner img");
-		images.forEach(function(img) {
-			var src = img.getAttribute("src");
-			let newSrc = (screenWidth < 651) ? src.replace('.webp', '-small.webp') : (screenWidth < 1001) ? src.replace('.webp', '-medium.webp') : src;
-			img.setAttribute("src", newSrc);
-		});
-	});
-</script>
 </body>
 </html>
