@@ -1502,6 +1502,12 @@ textarea {
   color: #000;
 }
 
+@media (max-width: 650px) {
+  .carousel{
+    max-width: 650px;
+  }
+}
+
 
 @media (min-width: 576px) {
   .sticky-sm-top {
